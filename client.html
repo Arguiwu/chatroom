@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<style type="text/css">
+		#box{overflow: auto;width: 500px;height: 100px;border:1px solid #dcdcdc;}
+		#put{width: 430px;}
+	</style>
+</head>
+<body>
+	<h2>简易聊天室</h2>
+	<div id="box"></div>
+	<input type="text" id="put" />
+	<input type="button" value="发送消息" onclick="sendMsg();">
+	<script type="text/javascript">
+		(function(){
+			var socket = io.connect('http://127.0.0.1:3000');
+			socket.on('chatMessage',function(msg){
+				msgbox(msg.msg);
+			})
+			window.sendMsg = function(){
+				var inpt = document.getElementById('put');
+				var str = inpt.value;
+				msgbox(str);
+				socket.emit('msg',{msg:str});
+				inpt.value = '';
+				inpt.focus();
+			}
+			function msgbox(str){
+				document.getElementById('box').innerHTML += str + '<br />';
+			}
+		})();
+	</script>
+</body>
+</html>

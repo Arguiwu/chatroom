@@ -1,0 +1,26 @@
+{
+  "name": "chatroom",
+  "version": "1.0.0",
+  "description": "easy chatroom reasons socket.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arguiwu/chatroom.git"
+  },
+  "keywords": [
+    "chatroom",
+    "socket.io"
+  ],
+  "author": "vinson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arguiwu/chatroom/issues"
+  },
+  "homepage": "https://github.com/Arguiwu/chatroom#readme",
+  "devDependencies": {
+    "socket.io": "^1.4.6"
+  }
+}
